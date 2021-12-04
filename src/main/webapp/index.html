@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+<script>
+    function validate() {
+    var username = document.getElementById("txt1").value;
+    // \d in regex match any digit (0-9)
+    // \w match any word between (a-z; A-Z; 0-9)
+    var regex = /^[7-9]\d{9}$/;
+    // ^ used to exclude range if used inside [^7-9] it means to exclude number btw 7 to 9
+    // $ denotes the end of the range beyond $ nothing is taken as input.
+    if (regex.test(username)) {
+        document.getElementById("lbl1").innerHTML="valid";
+        document.getElementById("lbl1").style.visibility="visible";
+        document.getElementById("lbl1").style.color="green";
+    }
+    else {
+        document.getElementById("lbl1").innerHTML="Invalid";
+        document.getElementById("lbl1").style.visibility="visible";
+        document.getElementById("lbl1").style.color="red";
+    }
+}
+    </script>
 <body>
-
-<div class="container-fluid">
-  <h1>Hi this is my first project work</h1>
-</div>
-
+    <input id="txt1" placeholder="Mobile Number" type="text"/>
+    <label id="lbl1" style="color: red;visibility: hidden;">Invalid Number</label>
+    <br></br>
+    <button onclick="validate()" type="button">Submit</button>
+    
+    
 </body>
 </html>
